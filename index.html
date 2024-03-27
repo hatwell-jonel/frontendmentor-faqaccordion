@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | FAQ accordion</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"  />
+
+</head>
+<body>
+
+  <div class="banner"></div>
+
+
+  <div class="card">
+    <h1 class="card__faqs"> <img src="./assets/images/icon-star.svg" alt="star"> FAQs
+    </h1>
+
+    <ul class="card_lists">
+      <!-- CHILD IN JAVASCRIPT -->
+      <!-- <li class="faq">
+        <h2 class="faq_question">
+          <span class="faq_question-text">What is Frontend Mentor, and how will it help me?</span>
+          <span class="faq_question-btn closed">
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </h2>
+        <p class="faq_answer opened">Frontend Mentor offers realistic coding challenges to improve their 
+          frontend coding skills with projects in HTML, CSS, and JavaScript It's suitable for all levels and ideal for portfolio building.</p>
+      </li> -->
+    </ul>
+  </div>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Jonel Hatwell</a>.
+  </footer>
+
+
+  <script>
+
+    const faqItems = [
+      {
+        id: 1,
+        question: "What is Frontend Mentor, and how will it help me?",
+        answer: "Frontend Mentor offers realistic coding challenges to improve their frontend coding skills with projects in HTML, CSS, and JavaScript It's suitable for all levels and ideal for portfolio building.",
+      },
+      {
+        id: 2,
+        question: "Is Frontend Mentor free?",
+        answer: "Yes, Frontend Mentor offers both free and premium coding challenges, with the free option providing access to a range of projects suitable for all skill levels.",
+      },
+      {
+        id: 3,
+        question: "Can I use Frontend Mentor projects in my portfolio?",
+        answer: "Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent way to showcase your skills to potential employers!",
+      },
+      {
+        id: 4,
+        question: "How can I get help if I'm stuck on a Frontend Mentor challenge?",
+        answer: "The best place to get help is inside Frontend Mentor's Discord community. There's a help channel where you can ask questions and seek support from other community members.",
+      }
+    ];
+
+    const cardListEl = document.querySelector('.card_lists');
+
+    
+    cardListEl.innerHTML = faqItems.map(item => `
+      <li class="faq show" id="${item.id}">
+        <h2 class="faq_question">
+          <span class="faq_question-text">${item.question}</span>
+          <span class="faq_question-btn ">
+            <i class="fa-solid fa-plus"></i>
+          </span>
+        </h2>
+        <p class="faq_answer">${item.answer}</p>
+      </li>
+    `).join('');
+
+    const faqQuestionEL = document.querySelectorAll('.faq_question');
+
+    faqQuestionEL.forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.parentElement.querySelector('.faq_answer');
+        const icon = question.querySelector('i');
+
+        answer.classList.toggle('show_answer');
+        icon.classList.toggle('fa-plus');
+        icon.classList.toggle('fa-minus');
+        question.querySelector('.faq_question-btn').classList.toggle('show_icon');
+      });
+    });
+
+  </script>
+
+</body>
+</html>
+
+
+<!-- 
+
+ -->
