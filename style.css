@@ -41,7 +41,7 @@ ul{
 
 .card{
     position: absolute;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 10px;
     background-color: var(--clr-white);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -124,11 +124,13 @@ ul{
 
 footer{
     position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
     background-color: var(--clr-dark-purple);
-    padding: 1rem;
-    border-radius: 0px 10px 10px 0px;
-    bottom: 2rem;
-    color: var(--clr-light-pink);
+
 }
 
 @media screen and (min-width: 1024px) {
